@@ -1,0 +1,14 @@
+<app-top-nav [topNavName]="topNavName" [topNavBgColor]="topNavBgColor" [topNavIcon]="topNavIcon" [hasLogo]="true"></app-top-nav>
+
+<div class="add-employee">
+  <div class="content">
+    <div class="row" *ngFor="let option of options" (click)="option?.action()">
+      <i class="pi {{ option?.icon }}"></i>
+      <div>
+        <h2>{{ option?.label }}</h2>
+        <div>{{ option?.value }}</div>
+      </div>
+      <i class="pi pi-chevron-right"></i>
+    </div>
+  </div>
+</div>

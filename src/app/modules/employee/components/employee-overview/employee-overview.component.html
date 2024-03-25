@@ -1,0 +1,82 @@
+<app-top-nav [hasStatus]="true" [hasInvite]="true" [hasStarted]="true" [topNavName]="topNavName" [marginLeft]="'-880px'" [minWidth]="'715px'" [topNavBgColor]="topNavBgColor" [topNavIcon]="topNavIcon" [hasLogo]="true"></app-top-nav>
+
+<div class="employee-overview">
+  <div class="side-panel">
+    <div class="menus">
+      <div *ngFor="let menu of menus" [ngClass]="{'active': getActiveMenu(menu.value) }">
+        <span (click)="goto(menu?.value!)">{{ menu?.label }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="inline">
+      <div class="basics-container">
+        <div class="heading">Basics</div>
+        <div class="detail">
+          <div>
+            <div>NAME</div>
+            <div>Demo Employee</div>
+          </div>
+          <div>
+            <div>GENDER</div>
+            <div>--</div>
+          </div>
+          <div>
+            <div>DATE OF BIRTH</div>
+            <div>--</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-info-container">
+        <div class="heading">Contact info</div>
+        <div class="detail">
+          <div>
+            <div>ACCOUNT EMAIL</div>
+            <div>demo@demoemployee.co.za</div>
+          </div>
+          <div>
+            <div>WORK EMAIL</div>
+            <div>--</div>
+          </div>
+          <div>
+            <div>NOTIFICATIONS TO</div>
+            <div>demo@demoemployee.co.za</div>
+          </div>
+          <div>
+            <div>PERSONAL PHONE</div>
+            <div>--</div>
+          </div>
+          <div>
+            <div>WORK PHONE</div>
+            <div>--</div>
+          </div>
+          <div>
+            <div>SKYPE</div>
+            <div>--</div>
+          </div>
+          <div>
+            <div>LINKEDIN</div>
+            <div>--</div>
+          </div>
+          <div>
+            <div>TWITTER</div>
+            <div>--</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="address-container">
+      <div class="heading">Address</div>
+    </div>
+
+
+    <div class="heading">Biography</div>
+
+
+
+    <div class="heading">Emergency contact</div>
+  </div>
+</div>

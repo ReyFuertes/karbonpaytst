@@ -1,0 +1,39 @@
+<div *ngIf="initSetupCompany === false; else setupYourCompany">
+  <div class="top-nav">
+    <div>
+      <div><b>LOGO HERE</b></div>
+      <div>Rey Fuertes</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="list">
+      <div>Rey's Company</div>
+      <div>Users: 1</div>
+      <div>Access: Admin</div>
+    </div>
+    <div class="banner-button">
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+      <button pButton type="button" label="Set up a new company" (click)="initSetupCompany = true"></button>
+    </div>
+  </div>
+</div>
+
+<ng-template #setupYourCompany>
+  <div class="setup-your-company">
+    <h1>Set up your company</h1>
+    <p>Let's start with the basics</p>
+  </div>
+  <div class="form" [formGroup]="form">
+    <div>
+      <div>
+        <span>Company Name</span>
+        <input type="text" formControlName="companyName" pInputText />
+      </div>
+      <div>
+        <span>Number of employees</span>
+        <p-dropdown [options]="numOfEmps" formControlName="numOfEmp" optionLabel="label"></p-dropdown>
+      </div>
+      <button pButton type="button" label="Set up company" (click)="gotoDashboard()"></button>
+    </div>
+  </div>
+</ng-template>

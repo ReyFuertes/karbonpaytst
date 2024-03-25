@@ -1,0 +1,88 @@
+.upper-menu {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 30px;
+  cursor: pointer;
+
+  i {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+}
+
+.top-nav {
+  display: flex;
+  color: #fff;
+  height: 60px;
+  align-items: center;
+  padding-left: 10px;
+  justify-content: center;
+
+  .caption {
+    font-size: 26px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    > div {
+      margin-right: 15px;
+    }
+
+    .status {
+      font-size: 12px;
+      text-transform: capitalize;
+      color: #f9bc04;
+      padding: 5px;
+      border-radius: 2px;
+      background-color: #fdfae5;
+    }
+
+    .invite {
+      color: #66ae61;
+      background-color: #fff;
+      padding: 5px;
+      border-radius: 2px;
+      font-size: 12px;
+    }
+  }
+
+  .started {
+    font-size: 12px;
+  }
+}
+
+.logo-box {
+  height: 95px;
+  width: 95px;
+  background-color: #fff;
+  box-shadow:
+    1px 1px 1px #ccc,
+    -1px 2px 5px #ccc;
+  position: absolute;
+  margin-left: -665px;
+  top: 60px;
+  border-radius: 4px;
+  color: #333;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  div {
+    text-align: center;
+  }
+
+  p {
+    font-size: 12px;
+    text-align: center;
+    color: #ccc;
+    margin: 10px 0 0;
+  }
+
+  i {
+    color: #ccc;
+    font-size: 1.5em;
+  }
+}

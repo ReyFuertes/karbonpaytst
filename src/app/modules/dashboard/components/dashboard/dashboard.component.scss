@@ -1,0 +1,90 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+
+  .content {
+    width: 500px;
+  }
+
+  .heading {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 20px 0;
+  }
+
+  .people-list, .app-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .circle {
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
+
+    span {
+      font-size: 12px;
+      font-size: 500;
+    }
+
+    > div {
+      &.default {
+        border: thin #32b65e dotted;
+      }
+
+      &.person {
+        border: thin #32b65e dotted;
+        background-color: #32b65e;
+        color: #fff;  
+      }
+
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+  
+      i {
+        color: #32b65e;
+      } 
+    }
+  }
+
+  .app {
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span {
+      font-size: 12px;
+      font-size: 500;
+      margin-top: 5px;
+      font-weight: bold;
+      color: #666;
+    }
+
+    > div {
+      border-radius: 5px;
+      width: 75px;
+      height: 75px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      background-color: #ccc;
+      color: #fff;  
+
+      i {
+        color: #fff;
+        font-size: 2.5em;
+      } 
+    }
+  }
+}

@@ -1,0 +1,106 @@
+<app-top-nav [minWidth]="'500px'" [topNavName]="topNavName" [topNavBgColor]="topNavBgColor" [topNavIcon]="topNavIcon" [hasLogo]="true"></app-top-nav>
+<p-toast position="top-center"></p-toast>
+<div class="employee-add">
+  <div class="side-panel">
+    <div class="menus">
+      <div *ngFor="let menu of menus" [ngClass]="{'active': getActiveMenu(menu.value) }">
+        <i *ngIf="isValid(menu.label) === true" class="pi pi-check"></i>
+        <span (click)="goto(menu?.value!)">{{ menu?.label }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="form" [formGroup]="form">
+      <div formGroupName="basics" *ngIf="activeMenu.get('1') === true" class="basics">
+        <div class="heading">Add the basics</div>
+        <div class="inline">
+          <div>
+            <span>Firstname</span>
+            <input type="text" class="firstname" formControlName="firstName" pInputText />
+          </div>
+          <div>
+            <span>Lastname</span>
+            <input type="text" class="firstname" formControlName="lastName" pInputText />
+          </div>
+        </div>
+        <div>
+          <span>Email Address</span>
+          <input type="email" class="firstname" formControlName="email" pInputText />
+        </div>
+        <div class="button-actions">
+          <button [disabled]="!form.get('basics')?.valid" pButton type="button" label="Save & Continue" (click)="gotoJobDetails()"></button>
+        </div>
+      </div>
+
+      <div formGroupName="job_details" *ngIf="activeMenu.get('2') === true" class="job-details">
+        <div class="heading">Add Demo's employment information</div>
+        <div>
+          <span>Start Date</span>
+          <p-calendar formControlName="startDate" [showIcon]="true" [placeholder]="'dd/mm/yyyy'" [dateFormat]="'dd/mm/yy'"></p-calendar>
+        </div>
+        <div>
+          <span>Employment type</span>
+          <p-dropdown [options]="employmentType" formControlName="employmentType" optionLabel="label" defaultLabel="Select Item"></p-dropdown>
+        </div>
+        <div>
+          <span>Job Title</span>
+          <input type="text" class="job-title" formControlName="jobTitle" pInputText />
+        </div>
+        <div>
+          <span>Manager</span>
+          <p-dropdown [options]="managers" formControlName="manager" optionLabel="label" defaultLabel="Select Item"></p-dropdown>
+        </div>
+        <div>
+          <span>Teams</span>
+          <p-dropdown [options]="teams" formControlName="team" optionLabel="label" defaultLabel="Select Item"></p-dropdown>
+        </div>
+        <div>
+          <span>Offices</span>
+          <p-dropdown [options]="offices" formControlName="office" optionLabel="label" defaultLabel="Select Item"></p-dropdown>
+        </div>
+        <div class="button-actions">
+          <div>
+            <button [disabled]="!form.get('job_details')?.valid" pButton type="button" label="Save & Continue"  (click)="gotoSalary()"></button>
+            <button pButton type="button" label="Finish later" class="p-button-outlined" (click)="finishLater()"></button>
+            <div><span>Delete employee</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="salary" *ngIf="activeMenu.get('3') === true" class="salary">
+        <div class="heading">Add Demo's salary information</div>
+        <p>Only Demo and other admins can see this information</p>
+        <div class="inline">
+          <div>
+            <span>Amount</span>
+            <input type="number" formControlName="amount" pInputText />
+          </div>
+          <div>
+            <span>Currency</span>
+            <p-dropdown [options]="currencies" formControlName="currency" optionLabel="label" defaultLabel="Select Item"></p-dropdown>
+          </div>
+          <div>
+            <span>Frequency</span>
+            <p-dropdown [options]="frequencies" formControlName="frequency" optionLabel="label" defaultLabel="Select Item"></p-dropdown>
+          </div>
+        </div>
+        <div>
+          <span>Effective form</span>
+          <p-calendar formControlName="effectiveForm" [showIcon]="true" [placeholder]="'dd/mm/yyyy'" [dateFormat]="'dd/mm/yy'"></p-calendar>
+        </div>
+        <div>
+          <span>Note</span>
+          <textarea [rows]="5" [cols]="30" formControlName="note" pInputTextarea></textarea>
+        </div>
+        <div class="button-actions">
+          <div>
+            <button pButton type="button" label="Finish & send invite" (click)="gotoEmpOverview()"></button>
+            <button pButton type="button" label="Save & invite later" class="p-button-outlined" (click)="finishLater()"></button>
+            <div><span>Delete employee</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

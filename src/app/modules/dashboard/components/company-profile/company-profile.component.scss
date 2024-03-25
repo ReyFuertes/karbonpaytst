@@ -1,0 +1,184 @@
+.company-profile {
+  display: flex;
+  justify-content: center;
+
+  .content {
+    width: 610px;
+  }
+
+  .heading {
+    color: #555;
+    font-weight: bold;
+    margin: 20px 0;
+    font-size: 30px;
+  }
+
+  .side-panel {
+    margin-top: 105px;
+    width: 122px;
+
+    .menus {
+      font-size: 14px;
+      color: #888;
+      display: flex;
+      flex-direction: column;
+
+      > div {
+        margin-bottom: 5px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+
+        &.active {
+          color: #ff877d;
+          font-weight: bold;
+          border-left: 2px solid #ff877d;
+        }
+      }
+
+      .pi-check {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .basics > div, .address > div {
+      display: flex;
+      flex-direction: column;
+      width: 485px;
+      margin-bottom: 20px;
+
+      span {
+        font-size: 13px;
+        margin-bottom: 5px;
+        color: #888;
+        font-weight: bold;
+      }
+
+      &:first-child {
+        margin-bottom: 15px;
+      }
+    }
+
+    .inline {
+      display: flex;
+      flex-direction: row !important;
+      justify-content: space-between;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+
+        &:first-child {
+          width: 75%;
+        }
+
+        &:last-child {
+          width: 20%;
+        }
+      }
+    }
+  }
+
+  .add-office-action {
+    border-top: thin #ccc solid;
+    border-bottom: thin #ccc solid;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #ff877d;
+    cursor: pointer;
+    justify-content: center;
+  
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+.office-modal {
+  > div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  span {
+    margin-bottom: 5px;
+  }
+}
+
+.button-actions {
+  display: flex;
+  flex-direction: row;
+
+  button {
+    margin-right: 10px;
+  }
+}
+
+.office-list {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  flex-direction: column;
+
+  > div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-bottom: thin #eee solid;
+  }
+
+  i {
+    color: #ff877d;
+  }
+}
+
+::ng-deep {
+  .p-dialog-content {
+    overflow: hidden !important;
+  }
+
+  .p-button {
+    width: 175px;
+    background-color: #ff877d;
+    border-color: #ff877d;
+    margin-bottom: 20px;
+
+    &:not(:disabled):hover {
+      background-color: #ff877d !important;
+      border-color: #ff877d !important;
+      opacity: 0.9;
+      cursor: pointer;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .p-button.p-button-outlined {
+    color: #888;
+    border-color: #888;
+
+    &:not(:disabled):hover {
+      background-color: #fff !important;
+      border-color: #888 !important;
+      color: #888 !important;
+      opacity: 0.9;
+      cursor: pointer;
+    }
+  }
+}
+

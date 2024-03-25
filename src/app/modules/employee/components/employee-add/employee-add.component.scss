@@ -1,0 +1,177 @@
+.employee-add {
+  display: flex;
+  justify-content: center;
+
+  .content {
+    width: 610px;
+
+    .heading {
+      color: #555;
+      font-weight: bold;
+      font-size: 30px;
+      white-space: nowrap;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .form {
+      display: flex;
+      align-items: left;
+      flex-direction: column;
+      margin-top: 20px;
+
+      .basics > div,
+      .job-details > div,
+      .salary > div {
+        display: flex;
+        flex-direction: column;
+        width: 580px;
+        margin-bottom: 20px;
+
+        span {
+          font-size: 13px;
+          position: relative;
+          top: -5px;
+          color: #888;
+          font-weight: bold;
+        }
+
+        &:first-child {
+          margin-bottom: 15px;
+        }
+
+        &.full-name {
+          display: flex;
+          flex-direction: row !important;
+          align-items: center;
+        }
+      }
+
+      .inline {
+        display: flex;
+        flex-direction: row !important;
+        justify-content: space-between;
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          margin-right: 10px;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .side-panel {
+    margin-top: 105px;
+    width: 122px;
+
+    .menus {
+      font-size: 14px;
+      color: #888;
+      display: flex;
+      flex-direction: column;
+
+      > div {
+        margin-bottom: 5px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+
+        &.active {
+          color: #50c768;
+          font-weight: bold;
+          border-left: 2px solid #50c768;
+        }
+      }
+
+      span {
+        cursor: pointer;
+      }
+
+      .pi-check {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.button-actions {
+  display: flex;
+  flex-direction: row !important;
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    div {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      width: 170px;
+      font-size: 14px;
+    }
+  }
+
+  span {
+    position: relative;
+    top: 0 !important;
+  }
+
+  button {
+    margin-right: 10px;
+    border: thin #ccc solid;
+    color: #666;
+
+    &:not(.p-button-outlined) {
+      background-color: #50c768;
+      border: thin #50c768 solid;
+      color: #fff;
+    }
+  }
+}
+
+:host ::ng-deep {
+  .p-calendar {
+    width: 100%;
+
+    .p-inputtext {
+      height: 47px;
+    }
+  }
+
+  .p-inputtext:enabled:hover,
+  .p-dropdown:not(.p-disabled):hover {
+    border-color: #50c768;
+    box-shadow: none;
+  }
+
+  .p-inputtext:enabled:focus {
+    box-shadow: none;
+    border-color: #50c768;
+  }
+
+  .p-button {
+    background-color: #50c768;
+    border-color: #50c768;
+    height: 47px;
+
+    &.p-button-outlined {
+      background-color: #fff;
+      &:enabled:hover {
+        background-color: #fff;
+        color: #888;
+        border-color: #888;
+      }
+    }
+
+    &:enabled:hover {
+      background: #50c768;
+      border-color: #50c768;
+    }
+  }
+}

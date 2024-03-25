@@ -1,0 +1,50 @@
+.add-employee {
+  display: flex;
+  justify-content: center;
+
+  .content {
+    width: 500px;
+    margin-top: 20px;
+    
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    border: thin #fff solid;
+
+    > div {
+      width: 340px;
+    }
+
+    > i.pi-chevron-right {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background-color: #f2fef1;
+      border: thin #50c768 solid;
+      cursor: pointer;
+      border-radius: 2px;
+
+      i.pi-chevron-right {
+        color: #50c768;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  i {
+    font-size: 2rem;
+    margin-right: 25px;
+  }
+}
+
+::ng-deep .logo-box {
+  border-radius: 50% !important;
+}

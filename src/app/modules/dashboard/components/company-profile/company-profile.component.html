@@ -1,0 +1,144 @@
+<app-top-nav [minWidth]="'500px'" [topNavName]="topNavName" [topNavBgColor]="topNavBgColor" [topNavIcon]="topNavIcon" [hasLogo]="true"></app-top-nav>
+<div class="company-profile">
+  <div class="side-panel">
+    <div class="menus">
+      <ng-container *ngIf="isOverview === false; else overviewPanel">
+        <div *ngFor="let menu of menus" [ngClass]="{'active': getActiveMenu(menu.value) }">
+          <i *ngIf="isValid(menu.label) === true && menu.value !== '3'" class="pi pi-check"></i>
+          <i *ngIf="menu.value === '3' && getOffices?.value?.length > 0" class="pi pi-check"></i>
+          <span>{{ menu?.label }}</span>
+        </div>
+      </ng-container>
+      <ng-template #overviewPanel>
+        <div *ngFor="let menu of overviewMenus; let i = index" [ngClass]="{'active': i === 0 }">
+          <span>{{ menu?.label }}</span>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="content">
+    <div class="form" [formGroup]="form">
+      <div formGroupName="basics" *ngIf="activeCompanyMenu.get('1') === true && isOverview === false" class="basics">
+        <div class="heading">Add the basics</div>
+        <div>
+          <span>Company Name</span>
+          <input type="text" class="company-name" formControlName="companyName" pInputText />
+        </div>
+        <div>
+          <span>About Company</span>
+          <textarea [rows]="5" [cols]="30" formControlName="aboutCompany" pInputTextarea></textarea>
+        </div>
+        <div>
+          <span>Primary Contact</span>
+          <p-dropdown [options]="primaryContact" formControlName="primaryContact" optionLabel="label"></p-dropdown>
+        </div>
+        <button pButton type="button" label="Continue" (click)="gotoAddress()" [disabled]="!form.get('basics')?.valid"></button>
+      </div>
+
+      <div formGroupName="address" *ngIf="activeCompanyMenu.get('2') === true && isOverview === false" class="address">
+        <div class="heading">Registered Address</div>
+        <div>
+          <span>Address Line 1</span>
+          <input type="text" formControlName="addressLine1" class="address-line-1" pInputText />
+        </div>
+        <div>
+          <span>Address Line 2</span>
+          <input type="text" formControlName="addressLine2" pInputText />
+        </div>
+        <div>
+          <span>County</span>
+          <input type="text" formControlName="county" pInputText />
+        </div>
+        <div class="inline">
+          <div>
+            <span>City</span>
+            <input type="text" formControlName="city" pInputText />
+          </div>
+          <div class="post-code">
+            <span>PostCode</span>
+            <input type="text" formControlName="postCode" pInputText />
+          </div>
+        </div>
+        <div>
+          <span>Country</span>
+          <p-dropdown [options]="countries" formControlName="country" optionLabel="label" defaultLabel="Select Item"></p-dropdown>
+        </div>
+        <div class="button-actions">
+          <div>
+            <button pButton type="button" label="Back" (click)="gotoBasics()" class="p-button-outlined"></button>
+            <button pButton type="button" label="Continue" (click)="gotoOffices()" [disabled]="!form.get('address')?.valid"></button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="activeCompanyMenu.get('3') === true && isOverview === false" class="offices">
+        <div class="heading">Offices</div>
+        <p>Organise your team members by location.</p>
+        <div class="add-office-action" (click)="toggleOfficeDialog()">
+          <i class="pi pi-map-marker"></i>
+          <div>Add Office</div>
+        </div>
+        <div class="office-list">
+          <div *ngFor="let office of getOffices?.controls; let i = index">
+            <div><i class="pi pi-map-marker"></i> {{ office.value?.officeName }}, {{ office.value?.address }}</div>
+          </div>
+        </div>
+        <div class="button-actions">
+          <div>
+            <button pButton type="button" label="Back" (click)="gotoAddress()" class="p-button-outlined"></button>
+            <button pButton type="button" label="Save & Continue" (click)="onSaveContinue()" [disabled]="!getOffices"></button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="activeCompanyMenu.get('4') === true && isOverview === false" class="tools">
+        <div class="heading">Tools</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <div class="add-office-action" (click)="toggleOfficeDialog()">
+          <i class="pi pi-map-marker"></i>
+          <div>Add Tools</div>
+        </div>
+        <div class="button-actions">
+          <div>
+            <button pButton type="button" label="Back" (click)="gotoOffices()" class="p-button-outlined"></button>
+            <button pButton type="button" label="Skip for now" (click)="skipForNowTools()"></button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="isOverview === true" class="tools">
+        <div class="heading">About Demo Company</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <div class="heading">Offices</div>
+        <div>
+          <div class="office-list">
+            <div *ngFor="let office of getOffices?.controls; let i = index">
+              <div><i class="pi pi-map-marker"></i> {{ office.value?.officeName }}, {{ office.value?.address }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="heading">Notes</div>
+        <button pButton type="button" label="Remove" class="p-button-outlined" (click)="back()"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog header="Add Office" [(visible)]="showOfficeDialog" [style]="{width: '500px', 'height': '400px'}" [modal]="true">
+  <div class="office-modal">
+    <div>
+      <span>Office Name</span>
+      <input type="text" [(ngModel)]="officeNameModel" pInputText />
+    </div>
+    <div>
+      <span>Address</span>
+      <textarea [rows]="5" [cols]="30" [(ngModel)]="officeAddressModel" pInputTextarea></textarea>
+    </div>
+    <div class="button-actions">
+      <div>
+        <button pButton type="button" label="Add" (click)="addOffice()"></button>
+        <button pButton type="button" label="Cancel" (click)="showOfficeDialog = false" class="p-button-outlined"></button>
+      </div>
+    </div>
+  </div>
+</p-dialog>

@@ -1,0 +1,30 @@
+<app-top-nav [minWidth]="'500px'" [topNavName]="topNavName"></app-top-nav>
+<div class="dashboard">
+  <div class="content">
+    <div class="heading">PEOPLE</div>
+    <div class="people-list">
+      <div class="circle" (click)="gotoAdd()">
+        <div class="default">
+          <div><i class="pi pi-plus"></i></div>
+        </div>
+        <span>Add</span>
+      </div>
+      <div class="circle" *ngFor="let person of people">
+        <div class="person">
+          <div>{{ person.value }}</div>
+        </div>
+        <span>{{ person.name }}</span>
+      </div>
+    </div>
+
+    <div class="heading">APPS</div>
+    <div class="app-list">
+      <div *ngFor="let app of apps" class="app" (click)="gotoApp(app)">
+        <div [ngStyle]="{'background-color': isAppActive(app.value) }">
+          <div><i class="pi pi-{{ app?.icon }}"></i></div>
+        </div>
+        <span>{{ app?.name }}</span>
+      </div>
+    </div>
+  </div>
+</div> 

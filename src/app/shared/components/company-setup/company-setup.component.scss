@@ -1,0 +1,115 @@
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+
+  div {
+    width: 50%;
+    text-align: right;
+    display: flex;
+    flex-wrap: wrap;
+
+    &:first-child {
+      justify-content: left;
+    }
+
+    &:last-child {
+      justify-content: end;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 50%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    
+    > div {
+      padding: 10px;
+      border-bottom: thin #f1f1f1 solid;
+
+      &:first-child {
+        width: 50%;
+      }
+
+      &:not(:first-child) {
+        width: 25%;
+        text-align: right;
+      }
+    }
+  }
+
+  .banner-button {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 400px;
+    width: 500px;
+    padding-top: 40px;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+.setup-your-company {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: 5px;
+  }
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+
+    span {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    &:first-child {
+      margin-bottom: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+    }
+  }
+}

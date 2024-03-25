@@ -1,0 +1,21 @@
+<div class="upper-menu" (click)="gotoDashboard()">
+  <i class="pi pi-align-justify"></i>
+  <i class="pi pi-star"></i>
+  <span>air</span>
+</div>
+<div class="top-nav" [ngStyle]="{'background-color': topNavBgColor }">
+  <div class="logo-box" [ngStyle]="{'margin-left': marginLeft}">
+    <div>
+      <i class="pi pi-{{ topNavIcon }}" [ngStyle]="{'color': topNavBgColor, 'font-size': hasLogo ? '3em': '1.5em' }"></i>
+      <p *ngIf="hasLogo === false">Add your company logo</p>
+    </div>
+  </div>
+  <div>
+    <div class="caption" [ngStyle]="{'min-width': minWidth}">
+      <div>{{ topNavName }}</div>
+      <div *ngIf="hasStatus === true" class="status">PENDING</div>
+      <div *ngIf="hasInvite === true" class="invite">Resend Invite</div>
+    </div>
+    <div *ngIf="hasStarted === true" class="started">Started 17 Jun 2023</div>
+  </div>
+</div>
